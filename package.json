@@ -12,7 +12,8 @@
     "lint": "eslint . --fix",
     "preview": "vite preview",
     "prepare": "husky",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
