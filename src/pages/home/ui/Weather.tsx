@@ -27,7 +27,7 @@ export const Weather = ({ title, coordinates }: WeatherProps) => {
     return (v && +v) || TIME_RANGES['24ч'];
   });
 
-  const { data, isFetching, isError, refetch } = useGetWeatherQuery(
+  const { currentData, isFetching, isError, refetch } = useGetWeatherQuery(
     {
       latitude: coordinates.latitude,
       longitude: coordinates.longitude,
@@ -89,7 +89,14 @@ export const Weather = ({ title, coordinates }: WeatherProps) => {
         ))}
       </RadioGroup>
       {isFetching && (
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: 300,
+          }}
+        >
           <CircularProgress />
         </Box>
       )}
@@ -99,6 +106,8 @@ export const Weather = ({ title, coordinates }: WeatherProps) => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            justifyContent: 'center',
+            height: 300,
           }}
         >
           <Typography
@@ -120,11 +129,11 @@ export const Weather = ({ title, coordinates }: WeatherProps) => {
           </Button>
         </Box>
       )}
-      {data && (
+      {currentData && !isFetching && (
         <BarChart
           xAxis={[
             {
-              data: data.hourly.time.map((item) =>
+              data: currentData.hourly.time.map((item) =>
                 new Date(item).toLocaleString(),
               ),
             },
@@ -137,7 +146,7 @@ export const Weather = ({ title, coordinates }: WeatherProps) => {
           ]}
           series={[
             {
-              data: data.hourly.temperature_2m,
+              data: currentData.hourly.temperature_2m,
               valueFormatter: (v) => v + ' °C',
             },
           ]}
