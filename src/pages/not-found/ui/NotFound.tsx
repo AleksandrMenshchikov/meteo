@@ -22,7 +22,7 @@ export const NotFound = () => {
         </Typography>
         <Button
           sx={{
-            fontSize: '1.6rem',
+            fontSize: 16,
             textTransform: 'none',
             fontWeight: 400,
             mt: 1,

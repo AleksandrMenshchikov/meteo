@@ -113,7 +113,10 @@ export const Weather = ({ title, coordinates }: WeatherProps) => {
             Произошла ошибка при загрузке данных, попробуйте перезагрузить
             страницу.
           </Typography>
-          <Button sx={{ textTransform: 'none' }} onClick={handleButtonClick}>
+          <Button
+            sx={{ textTransform: 'none', fontSize: 16 }}
+            onClick={handleButtonClick}
+          >
             Попробуйте ещё раз
           </Button>
         </Box>

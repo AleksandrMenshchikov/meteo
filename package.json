@@ -3,17 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://github.com/AleksandrMenshchikov.github.io/meteo",
   "scripts": {
-    "dev": "node checkNodeVersion.js && steiger ./src -w && vite",
+    "dev": "node checkNodeVersion.js && steiger ./src -w & vite",
     "build": "node checkNodeVersion.js && tsc -b && vite build",
     "format": "prettier . --write",
     "stylelint": "stylelint ./src/**/*.css --fix",
     "lint": "eslint . --fix",
     "preview": "vite preview",
-    "prepare": "husky",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
