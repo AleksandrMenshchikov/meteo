@@ -1,0 +1,1 @@
+npm run format && npm run stylelint && npm run lint
